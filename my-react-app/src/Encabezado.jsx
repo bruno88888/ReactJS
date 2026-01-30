@@ -6,18 +6,17 @@ import youtube from './assets/youtube.png';
 import './Encabezado.css';
 function Encabezado(){
     return(
-        <div >  
+        <div className="Encabezado">  
          <Logo />
          <Menu />
          <Redes />
-         <h2>Dios mio, mataron a kenny</h2>
         </div>
     );
 }
 
 function Logo(){
     return(
-        <div>
+        <div className="logoDiv">
             <img src={miLogo} alt="ReactLogo" />
         </div>
     );
@@ -25,26 +24,26 @@ function Logo(){
 
 function Menu(){
     return(
-        <nav>
+        <div className='menuDiv'>
             <ul>
-                <li>Inicio</li>
-                <li>Productos</li>
-                <li>Acerca de</li>
-                <li>Productos</li>
-                <li>Contactos</li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#acerca-de">Acerca de</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contactos">Contactos</a></li>
             </ul>
-        </nav>
+        </div>
     );
 }
 
 function Redes(){
     return(
-        <nav>   
-              <li><img src={pinterest} alt="ReactPinterest" /></li>
-              <li><img src={instagram} alt="ReactInstagram" /></li>
-              <li><img src={facebook} alt="ReactFacebook" /></li>
-              <li><img src={youtube} alt="ReactYoutube" /></li>
-        </nav>
+        <div className='redesDiv'>   
+              <li><a href="#"><img src={pinterest} alt="ReactPinterest" /></a></li> 
+              <li><a href="#"><img src={instagram} alt="ReactInstagram" /></a></li>
+              <li><a href="#"><img src={facebook} alt="ReactFacebook" /></a></li>
+              <li><a href="#"><img src={youtube} alt="ReactYoutube" /></a></li>
+        </div>
     )
 }
 
