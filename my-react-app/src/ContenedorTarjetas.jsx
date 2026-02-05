@@ -1,32 +1,25 @@
+import imagen from './assets/Harry.webp';
 import './ContenedorTarjeta.css';
-import Tarjeta from './Tarjeta';
-import harry from './assets/Harry.webp';
 
-function ContenedorTarjeta() {
+function ContenedorTarjetas() {
     return (
-        <div className="contenedor-tarjeta">
-            <Tarjeta 
-                titulo="Tarjeta 1" 
-                descripcion="Aquí va la descripción de tu tarjeta"
-                imagen={harry}
-            />
-            <Tarjeta 
-                titulo="Tarjeta 2" 
-                descripcion="Aquí va la descripción de tu tarjeta"
-                imagen={harry}
-            />
-            <Tarjeta 
-                titulo="Tarjeta 3" 
-                descripcion="Aquí va la descripción de tu tarjeta"
-                imagen={harry}
-            />
-            <Tarjeta 
-                titulo="Tarjeta 4" 
-                descripcion="Aquí va la descripción de tu tarjeta"
-                imagen={harry}
-            />
+        <div className="contenedorDiv">
+            <TarjetaComponent titulo="Canciones" descripcion="Descubre las mejores canciones de tu artista favorito." />
+            <TarjetaComponent titulo="Albums" descripcion="Explora los álbumes más populares de tu artista favorito." />
+            <TarjetaComponent titulo="Conciertos" descripcion="Consulta los próximos conciertos de tu artista favorito." />
+            <TarjetaComponent titulo="Merch" descripcion="Compra el merchandising oficial de tu artista favorito." />
+        </div>
+    );
+}
+
+function TarjetaComponent(props){
+    return(
+        <div className="tarjetaDiv">
+            <img src={imagen} alt="Logotipo" />
+            <h3>{props.titulo}</h3>
+            <p>{props.descripcion} <a href="#">Ver más</a></p>
         </div>
     )
 }
 
-export default ContenedorTarjeta;
+export default ContenedorTarjetas;
