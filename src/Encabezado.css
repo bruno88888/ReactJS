@@ -1,0 +1,87 @@
+h2{
+    color:blue
+}
+
+
+h1{
+    color:rgb(255, 255, 255)
+}
+.Encabezado{
+    background-color: rgb(101, 211, 238);
+    width: 100%;
+    display: flex;
+}
+.logoDiv{
+    width: 20%;
+    background-color: rgb(81, 171, 194);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.logoDiv img{
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+.menuDiv{
+    width: 60%;
+    background-color: rgb(124, 229, 255);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.menuDiv ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(81, 171, 194);
+    padding: 20px;
+    justify-content: center;
+    color: white;
+
+}
+.menuDiv ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.menuDiv ul li a:hover{
+    background-color: black;
+    padding: 20px;
+}
+
+
+.redesDiv{
+    width: 20%;
+    background-color: rgb(81, 171, 194);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.redesDiv li {
+    list-style: none;
+}
+
+.redesDiv img{
+    width: 40px;
+}
+
+.redesDiv ul{   
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    
+}
+.redesDiv ul li a:hover{
+    width: 10px;
+}

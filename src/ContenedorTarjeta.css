@@ -1,0 +1,129 @@
+.inicioDiv{
+    width: 90%;
+    height: 400px;
+    margin: 0px auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tarjeta-contenido {
+    padding: 20px;
+}
+
+.tarjeta-contenido h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tarjeta-contenido p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Responsive - 2 columnas en tablets */
+@media (max-width: 1024px) {
+    .contenedor-tarjeta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive - 1 columna en móviles */
+@media (max-width: 640px) {
+    .contenedor-tarjeta {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styles for ContenedorTarjetas.jsx new classes */
+.contenedorDiv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1400px;
+}
+
+.inicioDiv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1400px;
+}
+
+.tarjetaDiv {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaDiv:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjetaDiv img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.tarjetaDiv h3 {
+    margin: 12px 16px 0 16px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tarjetaDiv p {
+    margin: 8px 16px 16px 16px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .contenedorDiv {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .contenedorDiv {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,30 @@
+.imagen-estatica {
+    width: 100%;
+    position: relative;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.imagen-estatica img {
+    display: block;
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imagen-estatica__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    pointer-events: none;
+}
+
+.imagen-estatica__overlay h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
