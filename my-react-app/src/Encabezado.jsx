@@ -4,11 +4,11 @@ import facebook from './assets/facebook.png';
 import pinterest from './assets/pinterest.png';
 import youtube from './assets/youtube.png';
 import './Encabezado.css';
-function Encabezado(){
+function Encabezado({cambiarVista}){
     return(
         <div className="Encabezado">  
          <Logo />
-         <Menu />
+         <Menu cambiarVista={cambiarVista}/>
          <Redes />
         </div>
     );
@@ -22,15 +22,15 @@ function Logo(){
     );
 }
 
-function Menu(){
+function Menu({cambiarVista}){
     return(
         <div className='menuDiv'>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#acerca-de">Acerca de</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contactos">Contactos</a></li>
+                <li><button onClick={() => cambiarVista("Inicio")}>Inicio</button></li>
+                <li><button onClick={() => cambiarVista("Productos")}>Productos</button></li>
+                <li><button onClick={() => cambiarVista("Acerca de")}>Acerca de</button></li>
+                <li><button onClick={() => cambiarVista("Servicios")}>Servicios</button></li>
+                <li><button onClick={() => cambiarVista("Contactanos")}>Contactos</button></li>
             </ul>
         </div>
     );

@@ -1,9 +1,13 @@
 .contenedor-tarjeta {
+    width: 90vw;
+    max-width: 1400px;
+    margin: 40px auto;
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    flex-direction: column;
+    background: fixed;
+    border-radius: 20px;
     padding: 20px;
-    margin: 20px 0;
 }
 
 .tarjeta {
@@ -44,28 +48,7 @@
     line-height: 1.5;
 }
 
-/* Responsive - 2 columnas en tablets */
-@media (max-width: 1024px) {
-    .contenedor-tarjeta {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-/* Responsive - 1 columna en móviles */
-@media (max-width: 640px) {
-    .contenedor-tarjeta {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Styles for ContenedorTarjetas.jsx new classes */
-.contenedorDiv {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-    margin: 20px 0;
-}
 
 .tarjetaDiv {
     background: white;
@@ -103,13 +86,23 @@
     line-height: 1.5;
 }
 
-@media (max-width: 1024px) {
+.contenedorDiv {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+@media (max-width: 800px) {
     .contenedorDiv {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 420px) {
     .contenedorDiv {
         grid-template-columns: 1fr;
     }
