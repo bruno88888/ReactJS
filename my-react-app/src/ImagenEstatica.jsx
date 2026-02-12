@@ -1,3 +1,4 @@
+
 import './ImagenEstatica.css';
 import defaultImage from './assets/concert.jpg'; // Cambia esta ruta por la imagen que quieras
 

@@ -6,6 +6,7 @@ import Productos from './Productos.jsx';
 import AcercaDe from './AcercaDe.jsx';
 import Contactanos from './contactanos.jsx';
 import Servicios from './Servicios.jsx';
+import Sucursales from './Sucursales.jsx';
 
 
 function ContenedorTarjetas({vista}) {
@@ -14,7 +15,8 @@ function ContenedorTarjetas({vista}) {
         "Acerca de": <AcercaDe/>,
         "Productos": <Productos/>,
         "Contactanos" : <Contactanos/>,
-        "Servicios": <Servicios/>
+        "Servicios": <Servicios/>,
+        "Sucursales": <Sucursales/>
 
     }
     return (
@@ -29,7 +31,7 @@ function ContenedorTarjetas({vista}) {
 function Inicio() {
     return (
         <div className="contenedorDiv">
-            <TarjetaComponent titulo="Canciones" descripcion="Descubre las mejores canciones de tu artista favorito." />
+            <TarjetaComponent titulo="Canciones" descripcion="Descubre las mejores canciones de tu artista favorito."  />
             <TarjetaComponent titulo="Albums" descripcion="Explora los álbumes más populares de tu artista favorito." />
             <TarjetaComponent titulo="Tour" descripcion="Consulta los próximos conciertos de tu artista favorito." />
             <TarjetaComponent titulo="Merch" descripcion="Compra el merchandising oficial de tu artista favorito." />

@@ -1,0 +1,36 @@
+.acerca-container {
+	max-width: 1100px;
+	margin: 60px auto;
+	display: grid;
+	grid-template-columns: 350px 1fr;
+	gap: 40px;
+	align-items: center;
+	padding: 20px;
+	color: var(--muted-700);
+}
+
+.acerca-hero img {
+	width: 100%;
+	border-radius: 12px;
+	display: block;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+	object-fit: cover;
+}
+
+.acerca-content {
+	max-width: 600px;
+}
+
+.acerca-title {
+	margin-top: 0;
+	font-size: 2rem;
+	margin-bottom: 20px;
+	color: var(--muted-800);
+}
+
+.acerca-content p {
+	line-height: 1.7;
+	color: var(--muted-600);
+	margin-bottom: 16px;
+	font-size: 1rem;
+}

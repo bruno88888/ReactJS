@@ -1,0 +1,26 @@
+.servicios-container{
+  max-width: 1000px;
+  margin: 22px auto;
+  padding: 16px;
+}
+
+.servicios-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 16px;
+}
+
+.servicio-card{
+  background: linear-gradient(180deg, #ffffff, #fbfeff);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid #e6f6fa;
+  box-shadow: 0 6px 18px var(--soft-shadow);
+}
+
+.servicio-card h3{ margin: 0 0 8px 0; }
+.servicio-card p{ color: var(--muted-500); margin: 0; }
+
+.servicio-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(18,60,80,0.12); }
+
+@media (max-width:520px){ .servicios-container{ padding: 12px } }

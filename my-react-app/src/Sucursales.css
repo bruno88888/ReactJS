@@ -1,0 +1,55 @@
+.sucursales-container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.sucursales-title {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  color: #2b2b2b;
+}
+
+.sucursales-intro {
+  margin-bottom: 18px;
+  color: #444;
+}
+
+.sucursales-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.sucursal-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(30,30,30,0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sucursal-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  color: #111;
+}
+
+.sucursal-card p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.sucursal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(30,30,30,0.12);
+}
+
+@media (max-width: 520px) {
+  .sucursales-container { padding: 12px; }
+  .sucursales-title { font-size: 1.4rem; }
+}
