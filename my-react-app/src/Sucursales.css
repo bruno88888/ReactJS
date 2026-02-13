@@ -49,7 +49,17 @@
   box-shadow: 0 8px 20px rgba(30,30,30,0.12);
 }
 
+.sucursal-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: block;
+}
+
 @media (max-width: 520px) {
   .sucursales-container { padding: 12px; }
   .sucursales-title { font-size: 1.4rem; }
 }
+
