@@ -38,7 +38,7 @@ function MapaGeolocalizacion() {
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={ubicacion}
-                    zoom={16}
+                    zoom={17}
                 >
                     <Marker position={ubicacion} />
                 </GoogleMap>

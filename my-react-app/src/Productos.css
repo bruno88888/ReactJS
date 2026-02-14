@@ -1,42 +1,73 @@
-.productos-container{
-  max-width: 1000px;
-  margin: 22px auto;
-  padding: 16px;
-}
-
 .section-title{
-  font-size: 1.6rem;
-  color: var(--muted-700);
-  margin-bottom: 12px;
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: #111827;
+  letter-spacing: 1px;
 }
 
 .productos-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
 .producto-card{
-  background: var(--card-bg);
-  border: 1px solid #e9f6fb;
-  border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: 0 6px 18px var(--soft-shadow);
-  transition: transform .16s ease, box-shadow .16s ease;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: all .35s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.producto-card h3{ margin: 0 0 8px 0; }
-.producto-card p{ color: var(--muted-500); margin: 0 0 12px 0; }
+.producto-card:hover{
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+}
+
+.producto-card img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.producto-card h3{
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 30px 30px 10px 30px;
+  color: #111827;
+}
+
+.producto-card p{
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0 30px 30px 30px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
 
 .producto-card .btn{
-  background: linear-gradient(90deg,var(--accent-500),var(--accent-600));
-  color: white;
+  margin: 0 30px 35px 30px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #111827;
+  color: #ffffff;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  font-weight: 500;
   cursor: pointer;
 }
 
-.producto-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(20,20,20,0.12); }
+@media (max-width: 1024px){
+  .productos-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-@media (max-width:520px){ .productos-container{ padding: 12px } }
+@media (max-width: 640px){
+  .productos-grid{
+    grid-template-columns: 1fr;
+  }
+}

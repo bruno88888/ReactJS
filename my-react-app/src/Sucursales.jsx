@@ -5,6 +5,7 @@ import pueblaImg from './assets/puebla.jpg';
 import monterreyImg from './assets/monterrey.jpg';
 import veracruzImg from './assets/veracruz.jpg';
 import pachucaImg from './assets/pachuca.jpg';
+import PleasingImg from './assets/Pleasing.avif'
 
 function Sucursales() {
     return (
@@ -24,20 +25,13 @@ function Sucursales() {
                 </div>
 
                 <div className="sucursal-card">
-                    <img src={merchImg} alt="Tienda Merch" className="sucursal-img" />
-                    <h3>Tienda Merch</h3>
-                    <p>Merch oficial de Harry Styles — camisetas, posters y más.</p>
-                    <p>Compra en línea o en sucursales seleccionadas.</p>
-                </div>
-
-                <div className="sucursal-card">
                     <img src={pueblaImg} alt="Sucursal Puebla" className="sucursal-img" />
                     <h3>Puebla</h3>
                     <p>Dirección: Blvd. Héroes 45, Puebla</p>
                 </div>
 
                 <div className="sucursal-card">
-                    <img src={monterreyImg} alt="Sucursal Monterrey" className="sucursal-img" />
+                    <img src={PleasingImg} alt="Sucursal Monterrey" className="sucursal-img" />
                     <h3>Monterrey</h3>
                     <p>Dirección: Av. Constitución 678, Monterrey</p>
                 </div>

@@ -1,5 +1,3 @@
-import imagen from './assets/Harry.webp';
-import concertImage from './assets/concert.jpg';
 import './ContenedorTarjeta.css';
 import PropTypes from 'prop-types';
 import Productos from './Productos.jsx';
@@ -8,48 +6,68 @@ import Contactanos from './contactanos.jsx';
 import Servicios from './Servicios.jsx';
 import Sucursales from './Sucursales.jsx';
 
+import toursImage from './assets/tours.jpg';
+import albumsImage from './assets/albums.png';
+import merchImage from './assets/pleasingMerch.jpg';
+import cancionesImage from "./assets/canciones.jpg";
 
-function ContenedorTarjetas({vista}) {
+
+function ContenedorTarjetas({ vista }) {
+
     const vistas = {
-        "Inicio": <Inicio/>,
-        "Acerca de": <AcercaDe/>,
-        "Productos": <Productos/>,
-        "Contactanos" : <Contactanos/>,
-        "Servicios": <Servicios/>,
-        "Sucursales": <Sucursales/>
+        "Inicio": <Inicio />,
+        "Acerca de": <AcercaDe />,
+        "Productos": <Productos />,
+        "Contactanos": <Contactanos />,
+        "Servicios": <Servicios />,
+        "Sucursales": <Sucursales />
+    };
 
-    }
     return (
-        <div className="contenedorDiv">
+        <div className="contenedorVista">
             {vistas[vista] || vistas["Inicio"]}
-            </div>
-
+        </div>
     );
 }
 
 
 function Inicio() {
     return (
-        <div className="contenedorDiv">
-            <TarjetaComponent titulo="Canciones" descripcion="Descubre las mejores canciones de tu artista favorito."  />
-            <TarjetaComponent titulo="Albums" descripcion="Explora los álbumes más populares de tu artista favorito." />
-            <TarjetaComponent titulo="Tour" descripcion="Consulta los próximos conciertos de tu artista favorito." />
-            <TarjetaComponent titulo="Merch" descripcion="Compra el merchandising oficial de tu artista favorito." />
+        <div className="inicio-grid">
+            <TarjetaComponent
+                titulo="Canciones"
+                descripcion="Descubre las mejores canciones de tu artista favorito."
+                imagen={cancionesImage}
+            />
+            <TarjetaComponent
+                titulo="Albums"
+                descripcion="Explora los álbumes más populares de tu artista favorito."
+                imagen={albumsImage}
+            />
+            <TarjetaComponent
+                titulo="Tour"
+                descripcion="Consulta los próximos conciertos de tu artista favorito."
+                imagen={toursImage}
+            />
+            <TarjetaComponent
+                titulo="Merch"
+                descripcion="Compra el merchandising oficial de tu artista favorito."
+                imagen={merchImage}
+            />
         </div>
     );
 }
 
-function TarjetaComponent(props){
-    const imgSrc = props.titulo === "Conciertos" ? concertImage : imagen;
-    return(
-        <div className="tarjetaDiv">
-            <img src={imgSrc} alt="Logotipo" />
-            <h3>{props.titulo}</h3>
-            <p>{props.descripcion} <a href="#">Ver más</a></p>
-        </div>
-    )
-}
 
+function TarjetaComponent({ titulo, descripcion, imagen }) {
+    return (
+        <div className="tarjetaDiv">
+            <img src={imagen} alt={titulo} />
+            <h3>{titulo}</h3>
+            <p>{descripcion} <a href="#">Ver más</a></p>
+        </div>
+    );
+}
 
 
 ContenedorTarjetas.propTypes = {
@@ -57,3 +75,4 @@ ContenedorTarjetas.propTypes = {
 };
 
 export default ContenedorTarjetas;
+
