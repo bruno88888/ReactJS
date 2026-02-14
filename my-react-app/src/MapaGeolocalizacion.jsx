@@ -3,7 +3,8 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const containerStyle = {
     width: '100%',
-    height: '350px'
+    height: '400px',
+    borderRadius: '20px'
 };
 
 function MapaGeolocalizacion() {
@@ -15,6 +16,7 @@ function MapaGeolocalizacion() {
             setError('Geolocalización no soportada por el navegador.');
             return;
         }
+
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 setUbicacion({
@@ -22,8 +24,7 @@ function MapaGeolocalizacion() {
                     lng: position.coords.longitude
                 });
             },
-            (error) => {
-                console.error(error);
+            () => {
                 setError('No se pudo obtener la ubicación.');
             },
             { enableHighAccuracy: true }
@@ -34,13 +35,28 @@ function MapaGeolocalizacion() {
         <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             {error && <div>{error}</div>}
             {!ubicacion && !error && <div>Cargando mapa...</div>}
+
             {ubicacion && (
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={ubicacion}
                     zoom={17}
+                    options={{
+                        disableDefaultUI: true,
+                        zoomControl: true,
+                    }}
                 >
-                    <Marker position={ubicacion} />
+                    <Marker
+                        position={ubicacion}
+                        icon={{
+                            path: window.google.maps.SymbolPath.CIRCLE,
+                            scale: 10,
+                            fillColor: "#ff3b3b",
+                            fillOpacity: 1,
+                            strokeColor: "#ffffff",
+                            strokeWeight: 3,
+                        }}
+                    />
                 </GoogleMap>
             )}
         </LoadScript>

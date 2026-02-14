@@ -1,56 +1,75 @@
 import './Sucursales.css';
-import cdmxImg from './assets/cdmx.jpg';
-import merchImg from './assets/merch.jpg';
-import pueblaImg from './assets/puebla.jpg';
-import monterreyImg from './assets/monterrey.jpg';
-import veracruzImg from './assets/veracruz.jpg';
-import pachucaImg from './assets/pachuca.jpg';
-import PleasingImg from './assets/Pleasing.avif'
+import laImg from './assets/pleasing-la.jpeg';
+import nyImg from './assets/pleasing-ny.jpeg';
+import londonImg from './assets/pleasing-london.jpeg';
+
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+
+const mapStyle = {
+  width: "100%",
+  height: "200px",
+  borderRadius: "10px",
+  marginTop: "12px"
+};
+
+const tiendas = [
+  {
+    ciudad: "Los Angeles",
+    direccion: "West Hollywood, California",
+    coords: { lat: 34.0900, lng: -118.3617 },
+    img: laImg
+  },
+  {
+    ciudad: "New York",
+    direccion: "Manhattan, New York",
+    coords: { lat: 40.7831, lng: -73.9712 },
+    img: nyImg
+  },
+  {
+    ciudad: "London",
+    direccion: "Covent Garden, London",
+    coords: { lat: 51.5115, lng: -0.1235 },
+    img: londonImg
+  }
+];
 
 function Sucursales() {
-    return (
-        <div className="sucursales-container">
-            <h2 className="sucursales-title">Sucursales</h2>
-            <p className="sucursales-intro">
-                Encuentra nuestras sucursales y la tienda oficial de merch.
-            </p>
+  return (
+    <div className="sucursales-container">
+      <h2 className="sucursales-title">
+        Tiendas Oficiales de Pleasing
+      </h2>
 
-            <div className="sucursales-grid">
+      <p className="sucursales-intro">
+        Explora las ubicaciones oficiales de la marca creada por Harry Styles.
+      </p>
 
-                <div className="sucursal-card">
-                    <img src={cdmxImg} alt="Sucursal México" className="sucursal-img" />
-                    <h3>México (Sucursal central)</h3>
-                    <p>Dirección: Av. Reforma 123, Ciudad de México</p>
-                    <p>Horario: Lun-Sáb 10:00 - 20:00</p>
-                </div>
+      <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+        <div className="sucursales-grid">
+          {tiendas.map((tienda, index) => (
+            <div className="sucursal-card" key={index}>
+              <img
+                src={tienda.img}
+                alt={tienda.ciudad}
+                className="sucursal-img"
+              />
+              <h3>{tienda.ciudad}</h3>
+              <p>Ubicación: {tienda.direccion}</p>
 
-                <div className="sucursal-card">
-                    <img src={pueblaImg} alt="Sucursal Puebla" className="sucursal-img" />
-                    <h3>Puebla</h3>
-                    <p>Dirección: Blvd. Héroes 45, Puebla</p>
-                </div>
-
-                <div className="sucursal-card">
-                    <img src={PleasingImg} alt="Sucursal Monterrey" className="sucursal-img" />
-                    <h3>Monterrey</h3>
-                    <p>Dirección: Av. Constitución 678, Monterrey</p>
-                </div>
-
-                <div className="sucursal-card">
-                    <img src={veracruzImg} alt="Sucursal Veracruz" className="sucursal-img" />
-                    <h3>Veracruz</h3>
-                    <p>Dirección: Calle Mar 90, Veracruz</p>
-                </div>
-
-                <div className="sucursal-card">
-                    <img src={pachucaImg} alt="Sucursal Pachuca" className="sucursal-img" />
-                    <h3>Pachuca</h3>
-                    <p>Dirección: Plaza Hidalgo 10, Pachuca</p>
-                </div>
-
+              {/* MAPA INDIVIDUAL */}
+              <GoogleMap
+                mapContainerStyle={mapStyle}
+                center={tienda.coords}
+                zoom={15}
+              >
+                <Marker position={tienda.coords} />
+              </GoogleMap>
             </div>
+          ))}
         </div>
-    );
+      </LoadScript>
+    </div>
+  );
 }
 
 export default Sucursales;
