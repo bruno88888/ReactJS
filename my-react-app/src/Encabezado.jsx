@@ -4,6 +4,7 @@ import facebook from './assets/facebook.png';
 import pinterest from './assets/pinterest.png';
 import youtube from './assets/youtube.png';
 import './Encabezado.css';
+import Clima from './Clima';
 function Encabezado({cambiarVista}){
     return(
         <div className="Encabezado">  
@@ -40,10 +41,14 @@ function Menu({cambiarVista}){
 function Redes(){
     return(
         <div className='redesDiv'>   
+        <ul>
               <li><a href="#"><img src={pinterest} alt="ReactPinterest" /></a></li> 
               <li><a href="#"><img src={instagram} alt="ReactInstagram" /></a></li>
               <li><a href="#"><img src={facebook} alt="ReactFacebook" /></a></li>
               <li><a href="#"><img src={youtube} alt="ReactYoutube" /></a></li>
+            </ul>
+            <Clima />
+            
         </div>
     )
 }

@@ -1,38 +1,38 @@
 h2{
-    color:blue
+    color: blue;
 }
-
 
 h1{
-    color:rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
 }
+
+/* CONTENEDOR PRINCIPAL */
 .Encabezado{
     background-color: rgb(101, 211, 238);
     width: 100%;
     display: flex;
 }
+
+/* LOGO */
 .logoDiv{
     width: 20%;
     background-color: rgb(81, 171, 194);
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 .logoDiv img{
     width: 80px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
-
+/* MENU */
 .menuDiv{
     width: 60%;
     background-color: rgb(124, 229, 255);
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 .menuDiv ul{
@@ -46,7 +46,7 @@ h1{
     padding: 20px;
     justify-content: center;
     color: white;
-
+    margin: 0;
 }
 
 .menuDiv button {
@@ -57,31 +57,29 @@ h1{
     font-weight: bold;
     cursor: pointer;
     padding: 20px;
-    text-decoration: none;
 }
 
 .menuDiv button:hover {
     background-color: black;
-    padding: 20px;
-}
-.menuDiv ul li a{
-    text-decoration: none;
-    color: white;
 }
 
-.menuDiv ul li a:hover{
-    background-color: black;
-    padding: 20px;
-}
-
-
+/* REDES + CLIMA */
 .redesDiv{
     width: 20%;
     background-color: rgb(81, 171, 194);
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: space-between; /* separa redes y clima */
+    padding: 0 15px;
+}
+
+/* ICONOS REDES */
+.redesDiv ul{   
+    list-style: none;
     display: flex;
     gap: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .redesDiv li {
@@ -90,14 +88,32 @@ h1{
 
 .redesDiv img{
     width: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.redesDiv ul{   
-    list-style: none;
-    text-decoration: none;
+.redesDiv img:hover{
+    transform: scale(1.1);
+}
+
+/* CLIMA */
+.divClima {
     display: flex;
-    
+    flex-direction: column;
+    text-align: right;
+    color: white;
+    font-size: 13px;
+    line-height: 1.2;
 }
-.redesDiv ul li a:hover{
-    width: 10px;
+
+.divClima p {
+    margin: 0;
 }
+
+/* OPCIONAL: estilo más moderno del clima
+.divClima {
+    background: rgba(255,255,255,0.2);
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+*/
