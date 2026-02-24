@@ -5,11 +5,13 @@ import AcercaDe from './AcercaDe.jsx';
 import Contactanos from './contactanos.jsx';
 import Servicios from './Servicios.jsx';
 import Sucursales from './Sucursales.jsx';
-
+import Usuarios from './Usuarios.jsx';
 import toursImage from './assets/tours.jpg';
 import albumsImage from './assets/albums.png';
 import merchImage from './assets/pleasingMerch.jpg';
 import cancionesImage from "./assets/canciones.jpg";
+import Carrito from './Carrito.jsx';
+
 
 
 function ContenedorTarjetas({ vista }) {
@@ -19,6 +21,8 @@ function ContenedorTarjetas({ vista }) {
         "Acerca de": <AcercaDe />,
         "Productos": <Productos />,
         "Contactanos": <Contactanos />,
+        "Usuarios": <Usuarios />,
+        "Carrito": <Carrito />,
         "Servicios": <Servicios />,
         "Sucursales": <Sucursales />
     };
