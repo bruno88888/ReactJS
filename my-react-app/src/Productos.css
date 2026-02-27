@@ -71,3 +71,103 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* CONTENEDOR GENERAL */
+.productos-page{
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* FORMULARIO ARRIBA */
+.registro-barra{
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+}
+
+.registro-barra h3{
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.registro-form-horizontal{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.registro-form-horizontal input{
+  flex: 1;
+  min-width: 160px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.registro-form-horizontal input:focus{
+  border-color: #111827;
+}
+
+.registro-form-horizontal button{
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  background: #111827;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.registro-form-horizontal button:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* CONTENEDOR DE BOTONES */
+.card-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 0 30px 35px 30px;
+}
+
+/* BOTÓN GENERAL */
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-primary {
+  background: #111827;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #000000;
+  transform: translateY(-3px);
+}
+
+/* BOTÓN ELIMINAR */
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-3px);
+}

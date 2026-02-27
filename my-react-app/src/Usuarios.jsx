@@ -1,93 +1,49 @@
 import { useEffect, useState } from "react";
-import api from "./Services/api";
+import RegistrarUsuarios from "./registrarUsuarios";
 import "./Usuarios.css";
 
 function Usuarios() {
   const [usuarios, setUsuarios] = useState([]);
-  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    const obtenerUsuarios = async () => {
-      try {
-        const response = await api.get("/users");
-        setUsuarios(response.data);
-      } catch (error) {
-        console.error("Error al obtener usuarios:", error);
-      } finally {
-        setCargando(false);
-      }
-    };
-
-    obtenerUsuarios();
+    fetch("https://fakestoreapi.com/users")
+      .then(res => res.json())
+      .then(data => setUsuarios(data));
   }, []);
 
-  const handleEditar = (usuario) => {
-    console.log("Editar usuario:", usuario);
-    // Aquí luego puedes abrir un modal
+  const agregarUsuarioLista = (usuario) => {
+    setUsuarios([...usuarios, usuario]);
   };
 
-  const handleEliminar = (id) => {
-    const confirmar = window.confirm("¿Estás seguro de eliminar este usuario?");
-    if (confirmar) {
-      setUsuarios(usuarios.filter((usuario) => usuario.id !== id));
-      console.log("Usuario eliminado:", id);
-    }
+  const eliminarUsuario = (id) => {
+    setUsuarios(usuarios.filter(usuario => usuario.id !== id));
   };
-
-  if (cargando) {
-    return (
-      <div className="contenedorVista">
-        <p>Cargando usuarios...</p>
-      </div>
-    );
-  }
 
   return (
-    <div className="contenedorVista">
-      <h2 className="section-title">Usuarios Registrados</h2>
+    <div className="usuarios-container">
+      <h2>Gestión de Usuarios</h2>
 
-      <table className="tablaUsuarios">
+      <RegistrarUsuarios onUsuarioAgregado={agregarUsuarioLista} />
+
+      <table className="tabla-usuarios">
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-            <th>Correo</th>
+            <th>ID</th>
+            <th>Email</th>
             <th>Username</th>
-            <th>Password</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <th>Acciones</th>
           </tr>
         </thead>
-
         <tbody>
-          {usuarios.map((usuario) => (
+          {usuarios.map(usuario => (
             <tr key={usuario.id}>
-              <td>{usuario.name.firstname}</td>
-              <td>{usuario.name.lastname}</td>
-              <td>
-                {usuario.address.street} {usuario.address.number},{" "}
-                {usuario.address.city}
-              </td>
-              <td>{usuario.phone}</td>
+              <td>{usuario.id}</td>
               <td>{usuario.email}</td>
               <td>{usuario.username}</td>
-              <td>{usuario.password}</td>
-
-              <td>
-                <button
-                  className="btn-editar"
-                  onClick={() => handleEditar(usuario)}
-                >
-                  Editar
-                </button>
-              </td>
-
               <td>
                 <button
                   className="btn-eliminar"
-                  onClick={() => handleEliminar(usuario.id)}
+                  onClick={() => eliminarUsuario(usuario.id)}
                 >
                   Eliminar
                 </button>

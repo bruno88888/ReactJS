@@ -5,6 +5,7 @@ import './Productos.css';
 
 function Productos() {
   const [productos, setProductos] = useState([]);
+  const [carrito, setCarrito] = useState([]);
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
@@ -22,18 +23,27 @@ function Productos() {
     obtenerProductos();
   }, []);
 
-  // Función que se ejecuta cuando se agrega un producto nuevo
   const agregarProducto = (nuevoProducto) => {
     setProductos((prevProductos) => [...prevProductos, nuevoProducto]);
+  };
+
+  const agregarAlCarrito = (producto) => {
+    setCarrito((prev) => [...prev, producto]);
+    console.log("Carrito:", [...carrito, producto]);
+  };
+
+  const eliminarProducto = (id) => {
+    setProductos((prev) => prev.filter((producto) => producto.id !== id));
   };
 
   if (cargando) return <p>Cargando Productos...</p>;
 
   return (
-    <div>
-      <h2 className="section-title">Productos destacados</h2>
+    <div className="productos-page">
+      <h2 className="section-title">
+        Productos destacados ({carrito.length} en carrito)
+      </h2>
 
-      {/* Formulario para registrar producto */}
       <RegistrarProducto onProductoAgregado={agregarProducto} />
 
       <div className="productos-grid">
@@ -43,7 +53,22 @@ function Productos() {
               <img src={producto.image} alt={producto.title} />
               <h3>{producto.title}</h3>
               <p>${producto.price}</p>
-              <button className="btn">Ver producto</button>
+
+              <div className="card-buttons">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => agregarAlCarrito(producto)}
+                >
+                  Agregar al carrito
+                </button>
+
+                <button
+                  className="btn btn-danger"
+                  onClick={() => eliminarProducto(producto.id)}
+                >
+                  Eliminar
+                </button>
+              </div>
             </div>
           ))
         ) : (

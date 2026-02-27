@@ -1,22 +1,18 @@
-
 function RegistrarProducto(){
     return(
-        <div><h2>Regirtrar Productos</h2>
-        <form>
-            <label>Titulo:</label>
-            <input type="text" name="titulo"></input>
-            <label>Precio:</label>
-            <input type="number" name="price"></input>
-             <label>Descripcion:</label>
-            <input type="text" name="description"></input>
-             <label>Categoria:</label>
-            <input type="text" name="category"></input>
-             <label>Imagen:</label>
-            <input type="text" name="image"></input>
-            <button>Registrar</button>
+        <div className="registro-barra">
+            <h3>Registrar Producto</h3>
 
-        </form>
+            <form className="registro-form-horizontal">
+                <input type="text" name="titulo" placeholder="Título" />
+                <input type="number" name="price" placeholder="Precio" />
+                <input type="text" name="description" placeholder="Descripción" />
+                <input type="text" name="category" placeholder="Categoría" />
+                <input type="text" name="image" placeholder="URL Imagen" />
+                <button type="submit">Registrar</button>
+            </form>
         </div>
     )
 }
+
 export default RegistrarProducto
