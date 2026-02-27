@@ -41,6 +41,13 @@ function Usuarios() {
               <td>{usuario.email}</td>
               <td>{usuario.username}</td>
               <td>
+
+                <button
+                  className="btn-editar"
+                  onClick={() => editarUsuario(usuario.id)}
+                >
+                  Editar
+                </button>
                 <button
                   className="btn-eliminar"
                   onClick={() => eliminarUsuario(usuario.id)}

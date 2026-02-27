@@ -64,6 +64,12 @@ function Carrito() {
                 {carrito.products.map((producto, index) => (
                   <li key={index}>
                     Producto ID: {producto.productId} | Cantidad: {producto.quantity}
+                    <button
+                     className="btn-eliminar"
+                onClick={() => handleEliminar(carrito.id)}
+              >
+                X
+              </button>
                   </li>
                 ))}
               </ul>

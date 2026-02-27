@@ -79,6 +79,23 @@
     transform: translateY(-2px);
 }
 
+.btn-eliminarProducto{
+    background: #dc2626;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: all .3s ease;
+}
+
+.btn-eliminarProducto:hover{
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
 /* RESPONSIVE */
 @media (max-width: 1024px){
     .inicio-grid{
