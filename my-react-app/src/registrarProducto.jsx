@@ -1,7 +1,8 @@
-import { useState } from "react"
-import api from './Services/api'
+import { useState } from "react";
+import api from "./Services/api";
 
-function RegistrarProducto(){
+function RegistrarProducto() {
+
     const [productos, setProductos] = useState({
         title: '',
         price: '',
@@ -15,55 +16,77 @@ function RegistrarProducto(){
             ...productos,
             [e.target.name]: e.target.value
         });
-    }
-    const handleSubmit = (e) => {
+    };
+
+    const handleSubmit = async (e) => {   // 👈 async agregado
         e.preventDefault();
-        try{
-           const response = await api.post('/products', productos);
+        try {
+            const response = await api.post('/products', productos);
             alert('Producto registrado exitosamente');
-            console.log(productos);
+            console.log(response.data);
+
             setProductos({
-                title:'',
-                price:'',
-                description:'',
-                category:'',
-                image:'',
-            })
-        }catch(error){
+                title: '',
+                price: '',
+                description: '',
+                category: '',
+                image: '',
+            });
+
+        } catch (error) {
             console.error('Error al registrar producto:', error);
         }
     };
-    return (
-        <div>
-            <h1>Registrar Productos</h1>
-            <form onSubmit={handleSubmit}></form>
-        </div>
-    )
 
+    return (
+        <div className="registro-barra">
+            <h3>Registrar Producto</h3>
+
+            <form className="registro-form-horizontal" onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Título" 
+                    value={productos.title}
+                    onChange={handleChange}
+                />
+
+                <input 
+                    type="number" 
+                    name="price" 
+                    placeholder="Precio"
+                    value={productos.price}
+                    onChange={handleChange}
+                />
+
+                <input 
+                    type="text" 
+                    name="description" 
+                    placeholder="Descripción"
+                    value={productos.description}
+                    onChange={handleChange}
+                />
+
+                <input 
+                    type="text" 
+                    name="category" 
+                    placeholder="Categoría"
+                    value={productos.category}
+                    onChange={handleChange}
+                />
+
+                <input 
+                    type="text" 
+                    name="image" 
+                    placeholder="URL Imagen"
+                    value={productos.image}
+                    onChange={handleChange}
+                />
+
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    );
 }
 
-
-
-
-
-
-
-
-//function RegistrarProducto(){
-  //  return(
-    //    <div className="registro-barra">
-      //      <h3>Registrar Producto</h3>
-//
-  //          <form className="registro-form-horizontal">
-    //            <input type="text" name="titulo" placeholder="Título" />
-      //          <input type="number" name="price" placeholder="Precio" />
-        //        <input type="text" name="description" placeholder="Descripción" />
-          //      <input type="text" name="category" placeholder="Categoría" />
-            //    <input type="text" name="image" placeholder="URL Imagen" />
-              //  <button type="submit">Registrar</button>
-            //</form>
-        //</div>
-    //)
-//}
-
-export default RegistrarProducto
+export default RegistrarProducto;

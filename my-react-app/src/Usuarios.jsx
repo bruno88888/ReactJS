@@ -1,66 +1,113 @@
-import { useEffect, useState } from "react";
-import RegistrarUsuarios from "./registrarUsuarios";
-import "./Usuarios.css";
+import './Usuarios.css';
+import { useEffect, useState } from 'react';
+import api from './Services/api';
+import RegistrarUsuarios from './RegistrarUsuario';
 
-function Usuarios() {
-  const [usuarios, setUsuarios] = useState([]);
+function Usuario() {
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/users")
-      .then(res => res.json())
-      .then(data => setUsuarios(data));
-  }, []);
+    const [usuarios, setUsuarios] = useState([]);
+    const [cargando, setCargando] = useState(true);
+    const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
-  const agregarUsuarioLista = (usuario) => {
-    setUsuarios([...usuarios, usuario]);
-  };
+    // 🔹 Obtener usuarios
+    const obtenerUsuarios = async () => {
+        try {
+            const response = await api.get('/users');
+            setUsuarios(response.data);
+        } catch (error) {
+            console.error('Error al obtener usuarios:', error);
+        } finally {
+            setCargando(false);
+        }
+    };
 
-  const eliminarUsuario = (id) => {
-    setUsuarios(usuarios.filter(usuario => usuario.id !== id));
-  };
+    useEffect(() => {
+        obtenerUsuarios();
+    }, []);
 
-  return (
-    <div className="usuarios-container">
-      <h2>Gestión de Usuarios</h2>
+    // 🔹 Eliminar usuario
+    const eliminarUsuario = async (id) => {
+        const confirmar = window.confirm("¿Seguro que deseas eliminar este usuario?");
+        if (!confirmar) return;
 
-      <RegistrarUsuarios onUsuarioAgregado={agregarUsuarioLista} />
+        try {
+            await api.delete(`/users/${id}`);
+            alert("Usuario eliminado correctamente");
+            obtenerUsuarios(); // recargar tabla
+        } catch (error) {
+            console.error("Error al eliminar usuario:", error);
+            alert("No se pudo eliminar el usuario");
+        }
+    };
 
-      <table className="tabla-usuarios">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {usuarios.map(usuario => (
-            <tr key={usuario.id}>
-              <td>{usuario.id}</td>
-              <td>{usuario.email}</td>
-              <td>{usuario.username}</td>
-              <td>
+    if (cargando) return <p>Cargando usuarios...</p>;
 
-                <button
-                  className="btn-editar"
-                  onClick={() => editarUsuario(usuario.id)}
-                >
-                  Editar
-                </button>
-                <button
-                  className="btn-eliminar"
-                  onClick={() => eliminarUsuario(usuario.id)}
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
+    return (
+        <div className="usuarios">
+
+            <RegistrarUsuarios
+                usuarioEditado={usuarioSeleccionado}
+                limpiarSeleccion={() => setUsuarioSeleccionado(null)}
+                onActualizacionExitosa={obtenerUsuarios}
+            />
+
+            <h1>Usuarios Registrados</h1>
+
+            <table className="tabla-usuarios">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {usuarios.map((usuario) => (
+                        <tr key={usuario.id}>
+                            <td>{usuario.name?.firstname}</td>
+                            <td>{usuario.name?.lastname}</td>
+                            <td>
+                                {usuario.address?.street}{" "}
+                                {usuario.address?.number}{" "}
+                                {usuario.address?.city}{" "}
+                                {usuario.address?.zipcode}
+                            </td>
+                            <td>{usuario.phone}</td>
+                            <td>{usuario.email}</td>
+                            <td>{usuario.username}</td>
+                            <td>{usuario.password}</td>
+
+                            <td>
+                                <button
+                                    className="editar"
+                                    onClick={() => setUsuarioSeleccionado(usuario)}
+                                >
+                                    Editar
+                                </button>
+                            </td>
+
+                            <td>
+                                <button
+                                    className="eliminar"
+                                    onClick={() => eliminarUsuario(usuario.id)}
+                                >
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+
+            </table>
+        </div>
+    );
 }
 
-export default Usuarios;
+export default Usuario;
