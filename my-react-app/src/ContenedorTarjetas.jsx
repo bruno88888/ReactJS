@@ -11,6 +11,7 @@ import albumsImage from './assets/albums.png';
 import merchImage from './assets/pleasingMerch.jpg';
 import cancionesImage from "./assets/canciones.jpg";
 import Carrito from './Carrito.jsx';
+import Login from './Login.jsx';
 
 
 
@@ -24,7 +25,8 @@ function ContenedorTarjetas({ vista }) {
         "Usuarios": <Usuarios />,
         "Carrito": <Carrito />,
         "Servicios": <Servicios />,
-        "Sucursales": <Sucursales />
+        "Sucursales": <Sucursales />,
+        "Login": <Login />,
     };
 
     return (
