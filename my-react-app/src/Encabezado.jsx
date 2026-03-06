@@ -24,6 +24,7 @@ function Logo(){
 }
 
 function Menu({cambiarVista}){
+    const {isLoggedIn, logout} = useAuth();
     return(
         <div className='menuDiv'>
             <ul>
@@ -31,11 +32,20 @@ function Menu({cambiarVista}){
                 <li><button onClick={() => cambiarVista("Productos")}>Productos</button></li>
                 <li><button onClick={() => cambiarVista("Acerca de")}>Acerca de</button></li>
                 <li><button onClick={() => cambiarVista("Servicios")}>Servicios</button></li>
+                {IsLoggedIn ? (
+                <>
                 <li><button onClick={() => cambiarVista("Usuarios")}>Usuarios</button></li>
                 <li><button onClick={() => cambiarVista("Carrito")}>Carrito</button></li>
+
+                </>):
+                (
+                    <li onClick={() => cambiarVista("login")}>LogIn</li>
+
+                )}
                 <li><button onClick={() => cambiarVista("Contactanos")}>Contactos</button></li>
                 <li><button onClick={() => cambiarVista("Sucursales")}>Sucursales</button></li>
                 <li><button onClick={() => cambiarVista("Login")}>Login</button></li>
+                <li>Cerrar Sesion</li>
             </ul>
         </div>
     );
