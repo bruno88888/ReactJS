@@ -13,7 +13,7 @@ function App(){
       <Encabezado cambiarVista={setVista}/>
       <ContenedorTarjeta vista={Vista}/>
       </AuthProvider>
-      {Vista === "Inicio" && <ImagenEstatica />}
+      <ImagenEstatica />
       <Footer/>
     </div>
   );

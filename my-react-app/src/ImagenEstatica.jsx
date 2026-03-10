@@ -10,7 +10,7 @@ function ImagenEstatica({ imagen, titulo }) {
         <div className="imagen-estatica">
             <img src={src} alt="Imagen estática" className="imagen-estatica__img" />
             <div className="imagen-estatica__overlay">
-                <h1>Conciertos</h1> 
+                <h1>H.S.</h1> 
                 
             </div>
         </div>

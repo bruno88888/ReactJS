@@ -5,6 +5,7 @@ import pinterest from './assets/pinterest.png';
 import youtube from './assets/youtube.png';
 import './Encabezado.css';
 import Clima from './Clima';
+import { useAuth } from "./AuthContext";
 function Encabezado({cambiarVista}){
     return(
         <div className="Encabezado">  
@@ -25,6 +26,11 @@ function Logo(){
 
 function Menu({cambiarVista}){
     const {isLoggedIn, logout} = useAuth();
+    const handleLogout = () => {
+        logout();
+        cambiarVista("Inicio");
+    };
+
     return(
         <div className='menuDiv'>
             <ul>
@@ -32,25 +38,23 @@ function Menu({cambiarVista}){
                 <li><button onClick={() => cambiarVista("Productos")}>Productos</button></li>
                 <li><button onClick={() => cambiarVista("Acerca de")}>Acerca de</button></li>
                 <li><button onClick={() => cambiarVista("Servicios")}>Servicios</button></li>
-                {IsLoggedIn ? (
+
+                {isLoggedIn ? (
                 <>
-                <li><button onClick={() => cambiarVista("Usuarios")}>Usuarios</button></li>
-                <li><button onClick={() => cambiarVista("Carrito")}>Carrito</button></li>
-
-                </>):
-                (
-                    <li onClick={() => cambiarVista("login")}>LogIn</li>
-
+                    <li><button onClick={() => cambiarVista("Usuarios")}>Usuarios</button></li>
+                    <li><button onClick={() => cambiarVista("Carrito")}>Carrito</button></li>
+                    <li><button onClick={logout}>Cerrar Sesión</button></li>
+                </>
+                ) : (
+                    <li><button onClick={() => cambiarVista("Login")}>Login</button></li>
                 )}
+
                 <li><button onClick={() => cambiarVista("Contactanos")}>Contactos</button></li>
                 <li><button onClick={() => cambiarVista("Sucursales")}>Sucursales</button></li>
-                <li><button onClick={() => cambiarVista("Login")}>Login</button></li>
-                <li>Cerrar Sesion</li>
             </ul>
         </div>
     );
 }
-
 function Redes(){
     return(
         <div className='redesDiv'>   
