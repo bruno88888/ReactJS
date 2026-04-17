@@ -7,7 +7,7 @@ const Login = () => {
 
   const { login } = useAuth();
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -18,7 +18,7 @@ const Login = () => {
       setError('');
 
       const response = await api.post('/auth/login', {
-        username,
+        email,
         password,
       });
 
@@ -44,12 +44,12 @@ const Login = () => {
         <form className="login-form" onSubmit={handleLogin}>
 
           <div className="form-group">
-            <label>Nombre de usuario</label>
+            <label>Correo electrónico</label>
             <input 
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Tu usuario"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Tu correo"
             />
           </div>
 

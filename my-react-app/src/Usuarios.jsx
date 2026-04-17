@@ -1,7 +1,7 @@
 import './Usuarios.css';
 import { useEffect, useState } from 'react';
 import api from './Services/api';
-import RegistrarUsuario from './registrarUsuario';
+import RegistrarUsuario from './RegistrarUsuario';
 
 function Usuarios() {
     const [usuarios, setUsuarios] = useState([]);
@@ -36,26 +36,25 @@ function Usuarios() {
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Dirección</th>
+                        <th>Direccion</th>
                         <th>Teléfono</th>
-                        <th>Correo</th>
-                        <th>Username</th>
+                        <th>Email</th>
                         <th>Password</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Rol</th>
+                        <th>Fecha de Registro</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     {usuarios.map((usuario) => (
                         <tr key={usuario.id}>
-                            <td>{usuario.name.firstname}</td>
-                            <td>{usuario.name.lastname}</td>
-                            <td>{usuario.address.street} {usuario.address.number} {usuario.address.city} {usuario.address.zipcode}</td>
-                            <td>{usuario.phone}</td>
-                            <td>{usuario.email}</td>
                             <td>{usuario.username}</td>
+                            <td>{usuario.direccion}</td>
+                            <td>{usuario.telefono}</td>
+                            <td>{usuario.email}</td>
                             <td>{usuario.password}</td>
+                            <td>{usuario.rol || "cliente"}</td>
+                            <td>{usuario.fechaRegistro || new Date().toLocaleDateString()}</td>
                             <td><button className="editar" onClick={()=>setUsuarioSeleccionado(usuario)}>Editar</button></td>
                             <td><button className="eliminar">Eliminar</button></td>
                         </tr>
